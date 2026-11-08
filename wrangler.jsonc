@@ -1,0 +1,10 @@
+// Local Workers preview: npx wrangler dev --port 8787
+{
+  "name": "mdwork-site",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  }
+}

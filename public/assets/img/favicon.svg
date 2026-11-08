@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="MD Work">
+  <rect width="512" height="512" rx="112" fill="#FFC93C"/>
+  <g fill="none" stroke="#0A0E15" stroke-width="46" stroke-linejoin="miter" stroke-linecap="butt">
+    <path d="M74 376V136l92 138 92-138v240"/>
+    <path d="M300 136l34 240 42-134 42 134 34-240"/>
+  </g>
+</svg>
