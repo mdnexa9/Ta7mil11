@@ -13,6 +13,11 @@ export default {
       return new Response("ok", { headers: { "content-type": "text/plain; charset=utf-8" } });
     }
 
+    // Short, stable link for the Play data-deletion policy field.
+    if (url.pathname === "/data-deletion" || url.pathname === "/delete-data") {
+      return Response.redirect(new URL("/#delete-data", url).toString(), 301);
+    }
+
     const response = await env.ASSETS.fetch(request);
 
     // Keep deep links working: unknown HTML paths fall back to the page.

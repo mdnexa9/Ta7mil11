@@ -553,3 +553,16 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ---------- data deletion ---------- */
+.delnote {
+  margin-top: 22px; padding: 18px 20px;
+  border-inline-start: 3px solid var(--accent);
+  background: var(--surface); border: 1px solid var(--line); border-inline-start-width: 3px;
+  border-radius: 12px; color: var(--muted); font-size: .9rem; line-height: 1.65;
+}
+.delmail {
+  display: inline-block; margin-top: 20px;
+  color: var(--accent); font-weight: 700; font-size: .95rem;
+}
+.delmail:hover { text-decoration: underline; }
