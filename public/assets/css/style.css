@@ -566,3 +566,66 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   color: var(--accent); font-weight: 700; font-size: .95rem;
 }
 .delmail:hover { text-decoration: underline; }
+
+/* ---------- refreshed app mockups (Nov 2026 screens) ---------- */
+.app-paid {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(62, 217, 164, .12); border: 1px solid rgba(62, 217, 164, .3);
+  border-radius: 10px; padding: 6px 8px; font-size: .5rem; color: #8ff0cd;
+}
+.app-paid u { text-decoration: underline; }
+.app-paid span { color: #bfe9d8; font-weight: 600; }
+.app-paid i {
+  margin-inline-start: auto; font-style: normal;
+  background: #0d1624; border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 7px; padding: 3px 8px; color: #e9eff8; font-size: .48rem; font-weight: 700;
+}
+.app-month { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: .58rem; font-weight: 700; color: #e6edf7; }
+.app-month i { font-style: normal; color: #8494aa; }
+.app-hist-head { display: flex; align-items: center; justify-content: space-between; }
+.app-hist-head b { font-size: .5rem; text-transform: uppercase; letter-spacing: .15em; color: #7c8ba2; }
+.app-btn-sm {
+  display: flex; align-items: center; gap: 4px;
+  border: 1px solid rgba(255, 255, 255, .16); border-radius: 8px;
+  padding: 4px 8px; font-size: .48rem; font-weight: 700; color: #dbe4f0;
+}
+.app-btn-sm svg { width: 9px; height: 9px; fill: none; stroke: currentColor; stroke-width: 2; }
+.app-search {
+  display: flex; align-items: center; gap: 6px;
+  background: #0d1624; border: 1px solid rgba(255, 201, 60, .55);
+  border-radius: 10px; padding: 7px 9px; font-size: .52rem; color: #8494aa;
+}
+.app-search svg { width: 10px; height: 10px; fill: none; stroke: #8494aa; stroke-width: 2; }
+.app-day {
+  display: flex; align-items: center; gap: 6px;
+  background: #0d1624; border: 1px solid rgba(255, 255, 255, .07);
+  border-radius: 9px; padding: 6px 8px;
+}
+.app-day b { flex: 1; font-size: .52rem; font-weight: 600; }
+.app-day em {
+  font-style: normal; background: rgba(96, 165, 250, .18); color: #9fc9ff;
+  border-radius: 5px; padding: 2px 6px; font-size: .46rem; font-weight: 700;
+}
+.app-day svg { width: 10px; height: 10px; fill: none; stroke: #7c8ba2; stroke-width: 1.7; }
+.app-body--sheet { padding: 0; gap: 0; }
+.app-sheet {
+  flex: 1; display: flex; flex-direction: column; gap: 6px;
+  background: #0d1624; border: 1px solid rgba(255, 255, 255, .09);
+  border-radius: 16px 16px 0 0; padding: 13px 12px 14px;
+}
+.app-sheet__head { display: flex; align-items: center; justify-content: space-between; font-size: .66rem; font-weight: 800; color: #f2f6fc; margin-bottom: 2px; }
+.app-sheet__head i { font-style: normal; color: #8494aa; font-size: .8rem; }
+.app-field--input { text-align: start; font-size: .8rem; padding: 9px 10px; }
+.app-select {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #0a1220; border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 9px; padding: 8px 9px; font-size: .54rem; color: #dbe4f0;
+}
+.app-select i { font-style: normal; color: #8494aa; }
+.app-seg { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+.app-seg span {
+  text-align: center; border: 1px solid rgba(255, 255, 255, .14); border-radius: 8px;
+  padding: 6px; font-size: .5rem; font-weight: 700; color: #cdd8e8;
+}
+.app-seg span.on { background: #ffc93c; border-color: #ffc93c; color: #0a0e15; }
+.app-textarea { background: #0a1220; border: 1px solid rgba(255, 255, 255, .1); border-radius: 9px; min-height: 30px; }

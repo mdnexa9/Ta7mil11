@@ -132,7 +132,7 @@ def social_image():
     # mini app card
     card = [770, 150, 1128, 470]
     draw.rounded_rectangle(card, radius=30, fill=SURFACE, outline=(46, 60, 82), width=2)
-    draw.text((800, 184), "OCTOBER 2026", font=font(16), fill=MUTED)
+    draw.text((800, 184), "NOVEMBER 2026", font=font(16), fill=MUTED)
     draw.text((800, 216), "Remaining", font=font(24), fill=MUTED)
     draw.text((800, 248), "\u20ac1,087", font=font(58), fill=TEXT)
     draw.rounded_rectangle([800, 330, 1098, 380], radius=12, fill=(255, 201, 60))
