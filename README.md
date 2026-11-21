@@ -5,7 +5,7 @@ available on Google Play:
 
 <https://play.google.com/store/apps/details?id=app.mdwork.notebook>
 
-Live: <https://mdnexa9.github.io/Ta7mil11/>
+Live: <https://mdnexa9.github.io/saf7atta7mil/>
 
 ## What is here
 
@@ -33,7 +33,7 @@ scripts/generate_assets.py  regenerates icons + og.png
 every push to `main`. Pages must use **Source: GitHub Actions**; the first run
 enables it, and if it cannot, set that source once in Settings → Pages.
 
-The site is served from a subpath (`/Ta7mil11/`), so asset references in
+The site is served from a subpath (`/saf7atta7mil/`), so asset references in
 `index.html`, the web manifest, `robots.txt` and `sitemap.xml` are relative or
 absolute against that URL. Keep them that way instead of using `/assets/...`.
 

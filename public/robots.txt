@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mdnexa9.github.io/Ta7mil11/sitemap.xml
+Sitemap: https://mdnexa9.github.io/saf7atta7mil/sitemap.xml
