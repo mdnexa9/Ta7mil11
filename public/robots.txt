@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://site-578af2e6e6ff4c56a979e37196ca0c59.freebuff.page/sitemap.xml
+Sitemap: https://mdnexa9.github.io/Ta7mil11/sitemap.xml

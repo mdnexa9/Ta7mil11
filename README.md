@@ -5,7 +5,7 @@ available on Google Play:
 
 <https://play.google.com/store/apps/details?id=app.mdwork.notebook>
 
-Live: <https://site-578af2e6e6ff4c56a979e37196ca0c59.freebuff.page>
+Live: <https://mdnexa9.github.io/Ta7mil11/>
 
 ## What is here
 
@@ -26,6 +26,16 @@ freebuff.deploy.json     deploy manifest used by Sites
 wrangler.jsonc           local Wrangler preview config
 scripts/generate_assets.py  regenerates icons + og.png
 ```
+
+## GitHub Pages
+
+`.github/workflows/pages.yml` publishes the `public/` folder to GitHub Pages on
+every push to `main`. Pages must use **Source: GitHub Actions**; the first run
+enables it, and if it cannot, set that source once in Settings → Pages.
+
+The site is served from a subpath (`/Ta7mil11/`), so asset references in
+`index.html`, the web manifest, `robots.txt` and `sitemap.xml` are relative or
+absolute against that URL. Keep them that way instead of using `/assets/...`.
 
 ## Local preview
 
