@@ -2,8 +2,7 @@
 (function () {
   "use strict";
 
-  var I18N = window.I18N || {};
-  var LANGS = Object.keys(I18N);
+  var LANGS = ["en", "it", "fr", "de", "ar", "hi"];
   var RTL = ["ar", "he", "fa", "ur"];
   var root = document.documentElement;
 
@@ -14,21 +13,21 @@
     try { localStorage.setItem(key, value); } catch (e) { /* private mode */ }
   }
 
-  /* ---------- language ---------- */
-  function detectLang() {
-    var saved = safeGet("mdwork.lang");
-    if (saved && I18N[saved]) return saved;
-    var list = navigator.languages || [navigator.language || "en"];
-    for (var i = 0; i < list.length; i++) {
-      var code = String(list[i]).toLowerCase().split("-")[0];
-      if (I18N[code]) return code;
-    }
-    return "en";
+  /* ---------- language ----------
+     English is the page language. Another dictionary is fetched only when
+     someone picks it, so the first load carries a single translation. */
+  function loadDictionary(code, done) {
+    if (window.I18N && window.I18N[code]) { done(); return; }
+    var script = document.createElement("script");
+    script.src = "assets/js/i18n/" + code + ".js";
+    script.onload = done;
+    script.onerror = done;
+    document.head.appendChild(script);
   }
 
-  function applyLang(code) {
-    if (!I18N[code]) return;
-    var dict = I18N[code];
+  function paint(code) {
+    var dict = (window.I18N || {})[code];
+    if (!dict) return false;
     root.lang = code;
     root.dir = RTL.indexOf(code) >= 0 ? "rtl" : "ltr";
 
@@ -40,6 +39,13 @@
     var select = document.getElementById("lang");
     if (select && select.value !== code) select.value = code;
     safeSet("mdwork.lang", code);
+    return true;
+  }
+
+  function setLang(code) {
+    if (LANGS.indexOf(code) < 0) code = "en";
+    if (paint(code)) return;
+    loadDictionary(code, function () { paint(code); });
   }
 
   /* ---------- theme ---------- */
@@ -62,11 +68,13 @@
   /* ---------- init ---------- */
   function init() {
     initTheme();
-    applyLang(detectLang());
+
+    var savedLang = safeGet("mdwork.lang");
+    setLang(savedLang && LANGS.indexOf(savedLang) >= 0 ? savedLang : "en");
 
     var langSelect = document.getElementById("lang");
     if (langSelect) {
-      langSelect.addEventListener("change", function () { applyLang(langSelect.value); });
+      langSelect.addEventListener("change", function () { setLang(langSelect.value); });
     }
 
     var themeBtn = document.getElementById("theme");
@@ -81,17 +89,17 @@
     var footer = document.querySelector(".footer");
     if (bar && footer) {
       var footerVisible = false;
+      var syncBar = function () {
+        bar.hidden = !(window.scrollY > 460) || footerVisible;
+        ticking = false;
+      };
+      var ticking = false;
       if ("IntersectionObserver" in window) {
         new IntersectionObserver(function (entries) {
           footerVisible = entries[0].isIntersecting;
           syncBar();
         }, { threshold: 0.01 }).observe(footer);
       }
-      var ticking = false;
-      var syncBar = function () {
-        bar.hidden = !(window.scrollY > 460) || footerVisible;
-        ticking = false;
-      };
       window.addEventListener("scroll", function () {
         if (ticking) return;
         ticking = true;
@@ -100,31 +108,16 @@
       syncBar();
     }
 
-    /* reveal on scroll */
-    var revealTargets = document.querySelectorAll(".card, .step, .screens__item, .cta__copy, .strip__item");
-    if ("IntersectionObserver" in window && revealTargets.length) {
-      var revealObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-in");
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
-      revealTargets.forEach(function (el) {
-        el.classList.add("reveal");
-        revealObserver.observe(el);
-      });
-    }
-
-    /* keyboard: keep only one FAQ answer open */
+    /* keep one FAQ answer open at a time */
     var qas = document.querySelectorAll(".qa");
-    qas.forEach(function (qa) {
-      qa.addEventListener("toggle", function () {
-        if (!qa.open) return;
-        qas.forEach(function (other) { if (other !== qa) other.open = false; });
-      });
-    });
+    for (var i = 0; i < qas.length; i++) {
+      (function (qa) {
+        qa.addEventListener("toggle", function () {
+          if (!qa.open) return;
+          for (var j = 0; j < qas.length; j++) if (qas[j] !== qa) qas[j].open = false;
+        });
+      })(qas[i]);
+    }
 
     /* web app install prompt, when the browser offers it */
     var deferredPrompt = null;
@@ -132,14 +125,15 @@
       event.preventDefault();
       deferredPrompt = event;
     });
-    document.querySelectorAll('a[href*="play.google.com"]').forEach(function (link) {
-      link.addEventListener("click", function () {
+    var playLinks = document.querySelectorAll('a[href*="play.google.com"]');
+    for (var k = 0; k < playLinks.length; k++) {
+      playLinks[k].addEventListener("click", function () {
         if (deferredPrompt) {
           deferredPrompt.prompt();
           deferredPrompt = null;
         }
       });
-    });
+    }
   }
 
   if (document.readyState === "loading") {
