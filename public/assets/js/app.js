@@ -5,6 +5,9 @@
   var LANGS = ["en", "it", "fr", "de", "ar", "hi"];
   var RTL = ["ar", "he", "fa", "ur"];
   var root = document.documentElement;
+  /* Translated pages live in their own folder, e.g. /it/, so they reach the
+     shared assets one level up. The English page keeps an empty base. */
+  var BASE = root.getAttribute("data-base") || "";
 
   function safeGet(key) {
     try { return localStorage.getItem(key); } catch (e) { return null; }
@@ -19,7 +22,7 @@
   function loadDictionary(code, done) {
     if (window.I18N && window.I18N[code]) { done(); return; }
     var script = document.createElement("script");
-    script.src = "assets/js/i18n/" + code + ".js";
+    script.src = BASE + "assets/js/i18n/" + code + ".js";
     script.onload = done;
     script.onerror = done;
     document.head.appendChild(script);
@@ -69,12 +72,26 @@
   function init() {
     initTheme();
 
-    var savedLang = safeGet("mdwork.lang");
-    setLang(savedLang && LANGS.indexOf(savedLang) >= 0 ? savedLang : "en");
-
     var langSelect = document.getElementById("lang");
+    if (BASE) {
+      /* This page is already translated: remember the choice and keep the
+         selector showing the language of the page. */
+      var pageLang = root.lang;
+      safeSet("mdwork.lang", pageLang);
+      if (langSelect) langSelect.value = pageLang;
+    } else {
+      var savedLang = safeGet("mdwork.lang");
+      setLang(savedLang && LANGS.indexOf(savedLang) >= 0 ? savedLang : "en");
+    }
+
     if (langSelect) {
-      langSelect.addEventListener("change", function () { setLang(langSelect.value); });
+      langSelect.addEventListener("change", function () {
+        if (BASE) {
+          location.href = langSelect.value === "en" ? BASE : BASE + langSelect.value + "/";
+          return;
+        }
+        setLang(langSelect.value);
+      });
     }
 
     var themeBtn = document.getElementById("theme");

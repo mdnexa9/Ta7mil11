@@ -63,3 +63,19 @@ Icons and the social image are drawn by `python3 scripts/generate_assets.py`
   payments owed, backup file, reminders).
 - Download buttons point at the Play listing above. Keep that id exact:
   `app.mdwork.notebook`.
+
+## Translated pages
+
+`public/index.html` is the English page, and `scripts/build_locales.py` writes
+`public/it/`, `/fr/`, `/de/`, `/ar/` and `/hi/` from the same HTML with the text
+already translated from `public/assets/js/i18n/`, plus a canonical URL, hreflang
+alternates and localized structured data. Rebuild them whenever the page or a
+dictionary changes:
+
+```bash
+python3 scripts/build_locales.py
+```
+
+That script also keeps the English page's hreflang block and `sitemap.xml` in
+sync. Pages inside a language folder reach shared files through `../assets/` and
+declare `data-base="../"`, which `app.js` uses when it needs a dictionary.
