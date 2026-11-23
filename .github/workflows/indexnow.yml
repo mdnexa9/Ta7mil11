@@ -1,0 +1,42 @@
+name: IndexNow - إشعار محركات البحث
+
+# يعمل تلقائياً عند كل تحديث لصفحات Ta7mil11، وأسبوعياً كإجراء أمان، ويمكن تشغيله يدوياً من تبويب Actions.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "public/**"
+      - "worker.js"
+      - "scripts/indexnow.sh"
+      - ".github/workflows/indexnow.yml"
+  schedule:
+    - cron: "27 5 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: true
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    env:
+      HOST: mdnexa9.github.io
+      INDEXNOW_KEY: a7f3c9d21b4e6f8a5c0d9e3b7f1a2c4d
+      SITEMAP: public/sitemap.xml
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: تحقق من أن ملف المفتاح منشور على النطاق
+        run: |
+          set -euo pipefail
+          code=$(curl -s -o /dev/null -w '%{http_code}' "https://$HOST/$INDEXNOW_KEY.txt")
+          echo "ملف المفتاح: HTTP $code"
+          test "$code" = "200"
+
+      - name: أرسل صفحات الموقع إلى محركات البحث
+        run: bash scripts/indexnow.sh
