@@ -1,0 +1,30 @@
+# MD Work
+
+> MD Work is a free Android app that tracks work days, earnings and expenses for people paid by the day or by the hour. Everything stays on the phone: no account, no cloud, works offline. Free on Google Play, translated into 28 languages.
+
+## Facts
+
+- App: MD Work (package `app.mdwork.notebook`)
+- Developer: MD Nexa (MOHAMED YASSINE HAJ, Italy), mdnexa9@gmail.com
+- Platform: Android 7.0 and up
+- Price: free, supported by ads
+- Google Play: https://play.google.com/store/apps/details?id=app.mdwork.notebook
+- Website: https://mdnexa9.github.io/Ta7mil11/
+- Privacy policy: https://mdworkprivacypolicy.vercel.app/
+- Data deletion: https://mdnexa9.github.io/Ta7mil11/#delete-data
+- Languages: 28, including Arabic with right-to-left support
+- Currencies: EUR, USD, GBP, TND, AED
+
+## What it does
+
+MD Work is a work notebook for daily and hourly workers: it records a full day, a half day, days off or exact hours, computes earned, spent and remaining for the month, and shows everything on a month calendar. Expenses can be one-time or recurring, payments can be marked unpaid, partly paid or settled, and the month can be shared as a report image, a CSV file or plain text. Quick tools add notes, a work timer, checklists, tables and reminders. Backups are exported to a local file and restored on a new phone.
+
+## Who it is for
+
+Construction, agriculture, cleaning, delivery, hospitality and other daily or hourly paid work where income changes every month and no employer portal keeps the record.
+
+## Pages
+
+- [Home](https://mdnexa9.github.io/Ta7mil11/): features, screenshots, how it works, FAQ, download link
+- [Delete your data](https://mdnexa9.github.io/Ta7mil11/#delete-data): how records are erased
+- [Google Play listing](https://play.google.com/store/apps/details?id=app.mdwork.notebook)

@@ -56,7 +56,7 @@ window.I18N.de = {
   "f6.d": "Läuft offline, ohne Konto. Deine Daten bleiben auf dem Handy und nichts wird hochgeladen.",
   "inside.kicker": "In der App",
   "inside.title": "In fünf Sekunden verstanden.",
-  "inside.sub": "Drei Bildschirme erledigen alles – erfassen, prüfen, exportieren, ohne Einrichtung.",
+  "inside.sub": "Acht Bildschirme direkt aus Google Play – erfassen, prüfen, exportieren und die Werkzeuge dazu.",
   "s1.t": "Schnellwerkzeuge",
   "s1.d": "Schnellnotiz, Arbeitstimer, Checkliste und Erinnerungen – die kleinen Dinge, die einen Arbeitstag ordentlich halten.",
   "s2.t": "Verlauf",

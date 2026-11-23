@@ -56,7 +56,7 @@ window.I18N.fr = {
   "f6.d": "Fonctionne hors ligne, sans compte. Vos données restent sur votre téléphone et rien n'est envoyé en ligne.",
   "inside.kicker": "Dans l'app",
   "inside.title": "Compris en cinq secondes.",
-  "inside.sub": "Trois écrans font tout : enregistrer, vérifier et exporter, sans rien configurer.",
+  "inside.sub": "Huit écrans tirés de la fiche Google Play : enregistrer, vérifier, exporter, et les outils qui vont avec.",
   "s1.t": "Outils rapides",
   "s1.d": "Note rapide, minuteur, liste de tâches et rappels : les petits outils qui organisent une journée de travail.",
   "s2.t": "Historique",

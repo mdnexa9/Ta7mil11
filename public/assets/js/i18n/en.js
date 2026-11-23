@@ -56,7 +56,7 @@ window.I18N.en = {
   "f6.d": "Works offline with no account. Your records stay on your phone and nothing is uploaded.",
   "inside.kicker": "Inside the app",
   "inside.title": "Understood in five seconds.",
-  "inside.sub": "Three screens do the whole job — record, review and export, nothing to configure first.",
+  "inside.sub": "Eight screens from the Google Play listing — record, review, export, and the tools that come with them.",
   "s1.t": "Quick Tools",
   "s1.d": "A quick note, a work timer, a checklist and reminders — the small things that keep a working day organised.",
   "s2.t": "History",

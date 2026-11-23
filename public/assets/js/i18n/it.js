@@ -56,7 +56,7 @@ window.I18N.it = {
   "f6.d": "Funziona offline, senza account. I dati restano sul tuo telefono e nulla viene caricato online.",
   "inside.kicker": "Dentro l'app",
   "inside.title": "Si capisce in cinque secondi.",
-  "inside.sub": "Tre schermate fanno tutto: registra, controlla ed esporta, senza impostare nulla.",
+  "inside.sub": "Otto schermate dalla scheda Google Play: registra, controlla, esporta e gli strumenti che le accompagnano.",
   "s1.t": "Strumenti rapidi",
   "s1.d": "Nota rapida, timer di lavoro, checklist e promemoria: le piccole cose che tengono in ordine una giornata di lavoro.",
   "s2.t": "Cronologia",
